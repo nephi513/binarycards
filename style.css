@@ -1,0 +1,59 @@
+a.foot:link,a.foot:visited {
+  color: grey;
+  text-decoration: none;
+}
+
+body {
+  background-color: #cdcdcd;
+  text-align: center;
+}
+
+div.card {
+  width: 144px;
+  height: 216px;
+  background-color: grey;
+  display: inline-block;
+}
+
+footer {
+  color: grey;
+  font-size: 8pt;
+}
+
+img {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.unhidden {
+  visibility: visible;
+}
+
+.label {
+  font-family: arial;
+  font-size: 36pt;
+  text-align: center;
+  display: none;
+}
+
+.total {
+  font-size: 28pt;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.decimalbox {
+  display: none;
+  background-color: #cdcdcd;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 150px;
+  margin: auto;
+}

@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Binary Cards</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta name="author" content="Jim Maynard">
+<meta name="description" content="Binary Cards for use with CS Unplugged binary activity">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<script>
+
+var cardTotal=31; // Cards start face-up...
+
+function toggle(card) {
+  var whichcard="card"+card;
+  var whichStatus="status"+card;
+  var item = document.getElementById(whichcard);
+  if (item) {
+    if(item.className=='hidden') {
+      item.className='unhidden';
+      cardTotal+=card;
+      document.getElementById(whichStatus).innerHTML="1";
+    } else {
+      item.className='hidden';
+      cardTotal-=card;
+      document.getElementById(whichStatus).innerHTML="0";
+    }
+  }
+  updateTotal(cardTotal);
+}
+
+function toggle2(showHideDiv) {
+	var ele = document.getElementById(showHideDiv);
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+  	}
+	else {
+		ele.style.display = "block";
+	}
+}
+
+function toggleBinary() {
+
+  var cardLabels = new Array();
+  cardLabels[0] = "status1";
+  cardLabels[1] = "status2";
+  cardLabels[2] = "status4";
+  cardLabels[3] = "status8";
+  cardLabels[4] = "status16";
+
+  if (cardLabels.constructor == Array) {
+    for(i=0; i < cardLabels.length; i++) {
+      toggle2(cardLabels[i]);
+      }
+    } else {
+      toggle2(cardLabels);
+    }
+}
+
+function toggleDecimal() {
+  toggle2("decimalBox");
+}
+
+function updateTotal(newTotal) {
+  var item=document.getElementById('total');
+  item.innerHTML=newTotal;
+}
+
+function showButton(buttonid) {
+  var button = document.getElementById(buttonid);
+  button.style.display = "inline";
+}
+
+</script>
+</head>
+<body onLoad="var cardTotal=0;">
+<div style="width: 100%; margin-bottom: 10px;" hidden="true">
+<button onClick="toggleBinary();" id="binaryButton">Binary On/Off</button>
+<button onClick="toggleDecimal();" id="decimalButton">Decimal On/Off</button>
+</div>
+<div id="cards">
+<div class="card" onClick="toggle(16);">
+<img id="card16" src="binary-cards-16.svg" alt="16"><br>
+<span class="label" id="status16">1</span>
+</div>
+<div class="card" onClick="toggle(8);">
+<img id="card8" src="binary-cards-8.svg" alt="8">
+<span class="label" id="status8">1</span>
+</div>
+<div class="card" onClick="toggle(4);">
+<img id="card4" src="binary-cards-4.svg" alt="4">
+<span class="label" id="status4">1</span>
+</div>
+<div class="card" onClick="toggle(2);">
+<img id="card2" src="binary-cards-2.svg" alt="2">
+<span class="label" id="status2">1</span>
+</div>
+<div class="card" onClick="toggle(1);">
+<img id="card1" src="binary-cards-1.svg" alt="1">
+<span class="label" id="status1">1</span>
+</div>
+<p></p>
+<div class="decimalbox" id="decimalBox">
+<span style="font-size: 18pt">Decimal: </span><span class="total" id="total">31</span>
+</div>
+</div>
+<footer>
+<p><a href="javascript:toggleBinary();" class="foot">&copy;</a> 2013, Jim <a href="javascript:toggleDecimal();" class="foot">Maynard</a>. <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.mrmaynard.com%2Factivities%2Fbinarycards%2F" class="foot">Made with HTML 5</a></p>
+</footer>
+</body>
+</html>
